@@ -1,43 +1,99 @@
-/* Import Bootstrap SCSS */
-@import "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css";
+/* Import Bootstrap */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css');
 
-/* Custom Variables */
-$primary-color: #d90000;
-$secondary-color: #f8f9fa;
-$font-stack: 'Poppins', sans-serif;
-
-/* Apply Custom Styles */
+/* General Styles */
 body {
-    font-family: $font-stack;
-    background-color: $secondary-color;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa;
 }
 
+/* Navbar Styling */
 .navbar {
-    background-color: $secondary-color !important;
-    padding: 15px;
-    
-    .nav-link {
-        color: black !important;
-        font-weight: 500;
-        &:hover {
-            color: $primary-color !important;
-        }
-    }
+    background-color: #fff3cd;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.hero-section {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/findlab/assets/bg.jpg');
+.navbar-brand {
+    font-weight: bold;
+    color: #d92027;
+    font-size: 2rem;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+/* Search Bar */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.search-container input {
+    border-radius: 5px;
+    padding: 8px;
+    width: 250px;
+    border: 1px solid #ccc;
+}
+
+.search-container button {
+    background-color: #d92027;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
-    padding: 100px 0;
+    padding: 5rem 1rem;
 }
 
-.btn-search {
-    background-color: $primary-color;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+/* Tab Navigation */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.tabs button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tabs button.active {
+    color: #d92027;
+    border-bottom: 2px solid #d92027;
+}
+
+/* Footer */
+.footer {
+    background-color: #343a40;
     color: white;
-    &:hover {
-        background-color: darken($primary-color, 10%);
-    }
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
 }
