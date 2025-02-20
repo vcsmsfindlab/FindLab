@@ -1,0 +1,2220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/styles/website_findlab.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="/images/logo.png">
+    <title>Website | Find Lab System</title>
+    <style>
+        .nav-item {
+            margin-right: 20px;
+        }
+
+        .nav-link {
+            position: relative;
+            display: block;
+            text-decoration: none;
+            color: black;
+            padding: 10px 15px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(to right, red, orange);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            background-color: #feffea;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            color: black;
+            padding: 18px 0;
+            position: relative;
+        }
+
+        .marquee-wrapper {
+            display: inline-block;
+            white-space: nowrap;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: scroll-left 220s linear infinite;
+            padding-right: 50px;
+        }
+
+        .marquee span {
+            display: inline-block;
+            margin-right: 50px;
+            font-size: 16.3px;
+            font-weight: medium;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .services-title-one {
+            font-size: 23px;
+        }
+
+        .services-title-two {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .card-img-overlay-custom {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .card-img-overlay-custom img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .hover-card:hover .card-img-overlay-custom img {
+            transform: scale(1.05);
+        }
+
+        .floating-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(33, 147, 176, 0.1), rgba(109, 213, 237, 0.1));
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+
+        .circular-img-container {
+            width: 120px;
+            height: 120px;
+            margin: 20px auto 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .circular-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            border: 4px solid #fff;
+        }
+
+        .card:hover .circular-img {
+            transform: scale(1.1);
+        }
+
+        .card {
+            transition: transform 0.3s ease;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-danger {
+            border-radius: 20px;
+            padding: 8px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .backdrop-blur {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .nav-tabs .nav-link {
+            position: relative;
+            background: transparent;
+        }
+
+        .nav-tabs .nav-link.active {
+            background: transparent;
+            color: #dc3545 !important;
+        }
+
+        .nav-tabs .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #dc3545;
+        }
+
+        .card {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 991.98px) {
+            .card:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        .nav-link.active {
+            color: #dc3545 !important;
+        }
+
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+
+        .scroll-to-top:hover {
+            background-color: #c82333;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 15px rgba(220, 53, 69, 0.3);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-to-top i {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-5px);
+            }
+
+            60% {
+                transform: translateY(-3px);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .suggestion-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .suggestion-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .suggestion-container {
+            max-height: 530px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .suggestion-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .suggestion-container::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .suggestion-container::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            border-collapse: collapse;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-bordered {
+            border: 1px solid #dee2e6;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .table th,
+        .table td {
+            padding: 1rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .table thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #dee2e6;
+        }
+
+        .bg-success {
+            background-color: #28a745 !important;
+        }
+
+        .text-white {
+            color: #fff !important;
+        }
+
+        .text-dark {
+            color: #343a40 !important;
+        }
+
+        .bg-white1 {
+            background-color: #fff !important;
+        }
+
+        .table a {
+            color: #dc3545;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .table a:hover {
+            color: #dc3545;
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            .table {
+                display: block;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+
+        .table tbody tr:hover {
+            background-color: rgba(0, 0, 0, 0.075);
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 2px;
+            border-radius: 2px;
+            color: #000;
+        }
+
+        @keyframes highlightFade {
+            from {
+                background-color: #ffeb3b;
+            }
+
+            to {
+                background-color: rgba(255, 235, 59, 0.5);
+            }
+        }
+
+        .highlight {
+            animation: highlightFade 1s ease-in-out infinite alternate;
+        }
+
+        .image-transition-container {
+            position: relative;
+            width: 90%;
+            aspect-ratio: 16/9;
+            perspective: 1000px;
+            z-index: 1;
+        }
+
+        .image-set {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .image-set.active {
+            opacity: 1;
+        }
+
+        .image-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 1.5s;
+            transform-style: preserve-3d;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+            border: 5px solid rgba(255, 255, 255, 0.8);
+            border-radius: 0.3rem;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .front {
+            z-index: 2;
+            transform: translateZ(0);
+        }
+
+        .back {
+            z-index: 1;
+            transform: translateZ(-50px) scale(0.95);
+        }
+
+        @keyframes cycleImageSets {
+
+            0%,
+            28% {
+                opacity: 1;
+            }
+
+            33%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes frontToBack {
+
+            0%,
+            40% {
+                transform: translateZ(0) scale(1);
+                z-index: 2;
+            }
+
+            50%,
+            100% {
+                transform: translateZ(-50px) scale(0.95);
+                z-index: 1;
+            }
+        }
+
+        @keyframes backToFront {
+
+            0%,
+            40% {
+                transform: translateZ(-50px) scale(0.95);
+                z-index: 1;
+            }
+
+            50%,
+            100% {
+                transform: translateZ(0) scale(1);
+                z-index: 2;
+            }
+        }
+
+        .image-set {
+            animation: cycleImageSets 18s infinite;
+        }
+
+        .image-set:nth-child(2) {
+            animation-delay: 6s;
+        }
+
+        .image-set:nth-child(3) {
+            animation-delay: 12s;
+        }
+
+        .image-set .front {
+            animation: frontToBack 6s infinite;
+        }
+
+        .image-set .back {
+            animation: backToFront 6s infinite;
+        }
+
+        .image-set:nth-child(2) .front,
+        .image-set:nth-child(2) .back {
+            animation-delay: 6s;
+        }
+
+        .image-set:nth-child(3) .front,
+        .image-set:nth-child(3) .back {
+            animation-delay: 12s;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top nav-container"
+            style="background-color: #feffea;   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;">
+            <div class="container">
+                <div class="navbar-content">
+                    <img src="/images/website name.png" alt="" class="navbar-brand mx-0" width="250px" height="auto">
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-content">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#services">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#laboratories">Laboratories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#list">List of Laboratories</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn text-white" type="submit" style="background-color: #dc3545;">Search</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="container-fluid mt-5 px-0 position-relative">
+                <div class="position-relative min-vh-80">
+                    <div class="position-absolute w-100 h-100">
+                        <img src="/images/laboratory cover.jpg" alt="Landing Page" class="w-100 h-100 object-fit-cover">
+                        <div class="position-absolute top-0 start-0 w-100 h-100"
+                            style="background: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));">
+                        </div>
+                    </div>
+
+                    <div class="container position-relative">
+                        <div class="row min-vh-80 align-items-center py-5">
+                            <div class="col-lg-6 mb-5 mb-lg-0">
+                                <div class="text-white" data-aos="fade-right">
+                                    <h1 class="display-4 fw-bold mb-4">
+                                        WELCOME TO
+                                        <span class="text-danger">FINDLAB</span>
+                                    </h1>
+
+                                    <p class="lead mb-4 text-light">
+                                        A Web-Based Tool for Identifying Research and Testing Facilities for Laboratory
+                                        Experiments.
+                                    </p>
+
+                                    <p class="text-white-50 mb-4">FindLab is an easy-to-use, online platform that helps
+                                        researchers find research and testing facilities for their experiments. This
+                                        platform is designed to support the smooth progress of scientific studies by
+                                        making it easier to connect with the resources needed for a wide variety of
+                                        experiments.</p>
+
+                                    <div class="bg-white bg-opacity-10 p-4 rounded-4 shadow-lg backdrop-blur">
+                                        <ul class="nav nav-tabs border-0 mb-3" role="tablist">
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link active text-white border-0" data-bs-toggle="tab"
+                                                    data-bs-target="#labs" type="button">Laboratories</button>
+                                            </li>
+                                            <li class="nav-item" role="presentation">
+                                                <button class="nav-link text-white border-0" data-bs-toggle="tab"
+                                                    data-bs-target="#services" type="button">Services</button>
+                                            </li>
+                                        </ul>
+
+                                        <div class="input-group">
+                                            <input id="searchInput" type="text"
+                                                class="form-control form-control-lg border-0 shadow-none"
+                                                placeholder="What are you looking for?" oninput="showSuggestions()">
+                                            <button class="btn btn-danger btn-lg px-4" type="button"
+                                                onclick="showSuggestions()">
+                                                <i class="fas fa-search me-2"></i>
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-4 g-2">
+                                        <div class="col-4">
+                                            <div class="card bg-white bg-opacity-10 border-0 shadow-lg">
+                                                <div class="card-body p-3 text-center">
+                                                    <div class="rounded-circle bg-danger p-2 mx-auto mb-2"
+                                                        style="width: 50px; height: 50px;">
+                                                        <i class="fas fa-flask text-white fs-5"></i>
+                                                    </div>
+                                                    <h6 class="text-white mb-1">Research Facilities</h6>
+                                                    <p class="text-white-50 small mb-0">Top-tier labs and spaces</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card bg-white bg-opacity-10 border-0 shadow-lg">
+                                                <div class="card-body p-3 text-center">
+                                                    <div class="rounded-circle bg-danger p-2 mx-auto mb-2"
+                                                        style="width: 50px; height: 50px;">
+                                                        <i class="fas fa-microscope text-white fs-5"></i>
+                                                    </div>
+                                                    <h6 class="text-white mb-1">Advanced Equipment</h6>
+                                                    <p class="text-white-50 small mb-0">State-of-the-art tools</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4">
+                                            <div class="card bg-white bg-opacity-10 border-0 shadow-lg">
+                                                <div class="card-body p-3 text-center">
+                                                    <div class="rounded-circle bg-danger p-2 mx-auto mb-2"
+                                                        style="width: 50px; height: 50px;">
+                                                        <i class="fas fa-users text-white fs-5"></i>
+                                                    </div>
+                                                    <h6 class="text-white mb-1">Expert Support</h6>
+                                                    <p class="text-white-50 small mb-0">Professional guidance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="bg-white bg-opacity-10 p-4 rounded-4 shadow-lg backdrop-blur"
+                                    data-aos="fade-left">
+                                    <h5 class="text-white mb-3">Suggestions</h5>
+                                    <ul id="suggestionList" class="list-group list-group-flush suggestion-container">
+                                        <li class="list-group-item bg-transparent text-white-50">Start searching to see
+                                            suggestions...</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script>
+                            const database = [
+                                {
+                                    name: "Mammalian Cell Culture Laboratory",
+                                    website: "https://sites.google.com/up.edu.ph/mccl-upd-extension-services/",
+                                    location: "Ma. Regidor Street, University of the Philippines Diliman, Quezon City",
+                                    classification: "Academic institution",
+                                    contact: "mccl.upd@up.edu.ph | 8981-8500 local 3729",
+                                    services: [
+                                        "Sample Drying: Freeze-drying/lyophilization",
+                                        "Sample Drying: Rotavap drying",
+                                        "Sample Drying: Oven drying",
+                                        "DPPH Free Radical Scavenging Assay",
+                                        "Total Flavonoid/Phenolic Content Assay",
+                                        "MTT Cytotoxicity/Viability Assay",
+                                        "MTT Assay Photodocumentation",
+                                        "Wound Healing/Scratch Assay",
+                                        "Annexin V-PI Apoptosis Assay / IF Staining Assay (Ki-67/p53)",
+                                        "IF Staining Assay (Custom marker)"
+                                    ],
+                                    additional: "For more information regarding the cost: https://drive.google.com/file/d/1x12o56gCCXaagfpwUyht8pD6v31rnrp_/view"
+                                },
+                                {
+                                    name: "DOST-Food and Nutrition Research Institute",
+                                    website: "https://www.fnri.dost.gov.ph/index.php",
+                                    location: "Taguig, Philippines",
+                                    classification: "Government agency",
+                                    contact: "dostfnri47@fnri.dost.gov.ph | 8837-8113/8114 loc 301",
+                                    services: [
+                                        "Water analysis",
+                                        "Heterotrophic Plate Count (Pour Plate)",
+                                        "Total Coliform Count (MPN)",
+                                        "E. coli Count and Fecal Coliform Count (MPN)",
+                                        "Fecal Coliform Count (MPN)"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.fnri.dost.gov.ph/images/images/foodlab/SLG-testing-services-2024a.pdf"
+                                },
+                                {
+                                    name: "De La Salle-Medical and Health Sciences Institute",
+                                    website: "https://www.dlshsi.edu.ph/",
+                                    location: "Dasmariñas City, Cavite",
+                                    classification: "Academic institute",
+                                    contact: "dostfnri47@fnri.dost.gov.ph | (02)8988-3100 local 1386",
+                                    services: [
+                                        "Bacteriological Analysis of Drinking Water",
+                                        "Microbiological Analysis of Food",
+                                        "Antimicrobial evaluation of plant extracts and phytochemicals",
+                                        "Extraction of crude extract with concentration by rotary evaporator",
+                                        "Freeze drying of Crude extracts",
+                                        "Phytochemical Screening",
+                                        "Antioxidant Assay",
+                                        "Autoclave services"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.dlshsi.edu.ph/angelo-king-medical-research-center/research-services/center-basic-biomedical-research/"
+                                },
+                                {
+                                    name: "National Chemistry Instrumentation Center (NCIC)",
+                                    website: "https://sites.google.com/ateneo.edu/ncic/",
+                                    location: "Ateneo de Manila University, Quezon City",
+                                    classification: "Academic institute",
+                                    contact: "ncic.sose@ateneo.edu | +63-2-8426-6001 ext. 5629",
+                                    services: [
+                                        "NMR analysis",
+                                        "GCMS analysis",
+                                        "HPTLC Analysis",
+                                        "NMR supplies",
+                                        "Liquid Nitrogen"
+                                    ],
+                                    additional: "For more information regarding services offered: https://drive.google.com/file/d/1lYT7qXZEvR8nKxcsgoGXufFauouRaHL_/view"
+                                },
+                                {
+                                    name: "DLSU Spectroscopy Laboratory",
+                                    website: "https://www.dlsu.edu.ph/research/central-instrumentation-facility/spectroscopy-laboratory/",
+                                    location: "De La Salle University Laguna Campus",
+                                    classification: "Academic institute",
+                                    contact: "spectroscopylab@dlsu.edu.ph",
+                                    services: [
+                                        "UV-Vis Ultraviolet-Visible Spectrophotometry (Cuvette)",
+                                        "UV-Vis Ultraviolet-Visible Spectrophotometry (ISR/Large Compartment)",
+                                        "FTIR Fourier-Transform Infrared Spectroscopy (Diamond ATR)",
+                                        "DLS Dynamic Light Scattering (Particle Size)",
+                                        "DLS Dynamic Light Scattering (Zeta Potential)",
+                                        "ICPMS Inductively Coupled Plasma Mass Spectrometry",
+                                        "Elemental Analyzer"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.dlsu.edu.ph/research/central-instrumentation-facility/spectroscopy-laboratory/#1549423721993-0694db3d-a2f2"
+                                },
+                                {
+                                    name: "NSRI-Biological Research and Services Laboratory",
+                                    website: "https://sites.google.com/up.edu.ph/brsl-nsri/home?authuser=0",
+                                    location: "University of the Philippines Diliman",
+                                    classification: "Academic institute",
+                                    contact: "brsl_nsri.upd@up.edu.ph | 8981-8500 loc. 3604",
+                                    services: [
+                                        "Cytotoxicity Assay",
+                                        "Geno/Antigeno Toxicity",
+                                        "Microalgae",
+                                        "Microscopy",
+                                        "Molecular Biology",
+                                        "DNA/RNA Isolation",
+                                        "Agarose gel electrophoresis"
+                                    ],
+                                    additional: "For more information regarding services offered: https://drive.google.com/file/d/1wtbzEWD4YdpfTSPIzbEa9ZjIP1K2iPVS/view"
+                                },
+                                {
+                                    name: "CAS-IBS Microbiology Services Laboratory",
+                                    website: "https://ovcre.uplb.edu.ph/extension/analytical-research-services/item/366-cas-ibs-microbiology-services-laboratory",
+                                    location: "University of the Philippines Los Baños",
+                                    classification: "Academic institute",
+                                    contact: "ovcre.uplb@up.edu.ph | (049) 536 - 3368",
+                                    services: [
+                                        "Bacterial count",
+                                        "Fungal count",
+                                        "Total count and evaluation of microflora",
+                                        "Enumeration of Lactic acid, bacteria, yeast",
+                                        "Detection of coliforms",
+                                        "Detection of Salmonella",
+                                        "Detection of Staphylococcus",
+                                        "Mold Count",
+                                        "Test for Water Potability",
+                                        "Anti-microbial testing",
+                                        "Complete identification",
+                                        "Vitamins Assay",
+                                        "Vitamin B12",
+                                        "Folic acid",
+                                        "Niacin",
+                                        "Pantothenic acid",
+                                        "riboflavin",
+                                        "Aminio acid Assay",
+                                        "AME S TEST",
+                                        "Minimum inhibitory concentration assay (IC50)"
+                                    ],
+                                    additional: "For more information regarding services offered: None"
+                                },
+                                {
+                                    name: "CAFS-IPB Analytical Services Laboratory",
+                                    website: "https://ovcre.uplb.edu.ph/extension/analytical-research-services/item/671-cafs-ipb-analytical-services-laboratory",
+                                    location: "University of the Philippines Los Baños",
+                                    classification: "Academic institute",
+                                    contact: "ipb_asl.uplb@up.edu.ph | +63 962 715 8654",
+                                    services: [
+                                        "Proximate Analysis",
+                                        "Sample preparation",
+                                        "Moisture",
+                                        "Ash",
+                                        "Crude fat",
+                                        "Crude protein",
+                                        "Crude fiber",
+                                        "Soil and Fertilizer Analysis",
+                                        "Mineral Analysis",
+                                        "Calcium (AAS)",
+                                        "Potassium (AAS)",
+                                        "Iron (AAS)",
+                                        "Zinc (AAS)",
+                                        "Vitamin Analysis",
+                                        "Vitamin A",
+                                        "Vitamin C",
+                                        "Vitamin E",
+                                        "Amino Acid Analysis",
+                                        "Lysine",
+                                        "Tryptophan",
+                                        "Methionine",
+                                        "Proline",
+                                        "Carbohydrates Analysis",
+                                        "Total carbohydrates",
+                                        "Total sugars",
+                                        "Total reducing sugars",
+                                        "Starch",
+                                        "Amylose",
+                                        "Phytochemical Analysis",
+                                        "DPPH Antioxidant Assay",
+                                        "Phenols",
+                                        "Flavonoids",
+                                        "Tannins",
+                                        "Saponin"
+                                    ],
+                                    additional: "For more information regarding services offered: None"
+                                },
+                                {
+                                    name: "Central Analytical Services Laboratory",
+                                    website: "https://biotech.uplb.edu.ph/laboratory-services/casl/",
+                                    location: "University of the Philippines Los Baños",
+                                    classification: "Academic institute",
+                                    contact: "casl.biotech.uplb@gmail.com | (049) 536-2721 loc. 122",
+                                    services: [
+                                        "Gas Chromatographic Analysis",
+                                        "pH",
+                                        "Extraction",
+                                        "Water Analysis",
+                                        "Fertilizer Analysis",
+                                        "Soil analysis",
+                                        "Compositional analysis"
+                                    ],
+                                    additional: "For more information regarding services offered: None"
+                                },
+                                {
+                                    name: "UP Manila-College of Public Health",
+                                    website: "https://cph.upm.edu.ph/",
+                                    location: "University of the Philippines Manila",
+                                    classification: "Academic institute",
+                                    contact: "upm-cph@up.edu.ph | 63-2-85242703",
+                                    services: [
+                                        "Blood Lead analysis",
+                                        "Physico-Chemical Analysis of Drinking Water",
+                                        "Microbial Assay",
+                                        "Product bacterial challenge",
+                                        "Antimicrobial susceptibility testing",
+                                        "Spectrophotometry reading",
+                                        "Determination of Hemoglobin using Hemocue",
+                                        "Proximate analysis",
+                                        "Diagnostic Parasitology Laboratory",
+                                        "Fecal smear",
+                                        "Kato thick",
+                                        "Kato Katz",
+                                        "IFAT immunofluorescence antibody test",
+                                        "Histopathological examination"
+                                    ],
+                                    additional: "For more information regarding services offered: https://cph.upm.edu.ph/sites/default/files/CPH%20Laboratory%20and%20Technical%20Services%202018.pdf"
+                                },
+                                {
+                                    name: "DOST-Industrial Technology Development Institute",
+                                    website: "https://www.itdi.dost.gov.ph/index.php",
+                                    location: "Taguig City, Philippines ",
+                                    classification: "Government Agency",
+                                    contact: "avbriones@itdi.dost.gov.ph, avbriones2003@yahoo.com  | (632) 86837750 to 69  loc. 2182  and 2215",
+                                    services: [
+                                        "Use of furnace for carbonization, calcination or ashing",
+                                        "Use of hammermill crusher",
+                                        "High grade silica from plant material",
+                                        "Preparation of activated carbon from plant material",
+                                        "Solvent extraction of fixed oil",
+                                        "Transesterification of fixed oil",
+                                        "UV-Vis Analysis",
+                                        "Extraction of essential oil",
+                                        "Extraction of essential oil from elemi gum",
+                                        "Preparation and grinding of plant material",
+                                        "Preparation of concentrated crude plant extract",
+                                        "Agglomerator",
+                                        "Blast Freezer V5",
+                                        "Cabinet Dryer",
+                                        "Colloid Mill",
+                                        "Grater",
+                                        "Hammer Mill",
+                                        "Homogenizer",
+                                        "Hydraulic Press, manual",
+                                        "Jacketed Kettle",
+                                        "Moisture Analyzer",
+                                        "Oil Expeller",
+                                        "Pressure Filter",
+                                        "Ram Press",
+                                        "Retort",
+                                        "Ribbon Mixer",
+                                        "Screw Press",
+                                        "Slicer",
+                                        "Tableting Machine",
+                                        "V-Blender",
+                                        "Vacuum Dryer"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.itdi.dost.gov.ph/index.php/technical-services-fees"
+                                },
+                                {
+                                    name: "Adamson University Technology Research and Development Center",
+                                    website: "https://www.adamson.edu.ph/v1/?page=offices&oid=30&link=64",
+                                    location: "900 San Marcelino St, Ermita, Manila, 1000 Metro Manila",
+                                    classification: "Academic institute",
+                                    contact: "chemistry.laboratory@adamson.edu.ph, webmaster@adamson.edu.ph",
+                                    services: [
+                                        "Atomic Absorption Spectroscopy",
+                                        "Fourier Transform Infrared Spectrometer",
+                                        "Gas Chromatography with Flame",
+                                        "Ionization Detector/Thermal",
+                                        "Conductivity Detector",
+                                        "Microplate Reader",
+                                        "Ultraviolet-Visible Spectroscopy",
+                                        "Analytical Balance",
+                                        "Autoclave",
+                                        "Bomb Calorimeter",
+                                        "Centrifuge",
+                                        "Desiccator (Cabinet)",
+                                        "Digital Barometer",
+                                        "Digital Viscometer",
+                                        "Dry Cabinet",
+                                        "Drying Oven",
+                                        "Five Place Magnetic Stirrer",
+                                        "Fume Hood",
+                                        "Heating Mantle",
+                                        "Hot Shaker",
+                                        "Hot Plate/Hotplate with Magnetic Stirrer",
+                                        "Hybridization Incubator",
+                                        "Hydraulic Press",
+                                        "Laboratory Work Bench",
+                                        "Melting Point Apparatus",
+                                        "Micro Centrifuge Machine",
+                                        "Micropipettor",
+                                        "Microscope",
+                                        "Muffle Furnace",
+                                        "Orbital Shaker",
+                                        "Osterizer",
+                                        "pH meter",
+                                        "pH Meter with ORP/ISE (F-)/Conductivity",
+                                        "Polarimeter",
+                                        "Potentiostat/Galvanostat",
+                                        "Refractometer",
+                                        "Refrigerated Centrifuge",
+                                        "Rotary Evaporator",
+                                        "Semi Micro Analytical Balance",
+                                        "Sonicator Water Bath (10 L capacity)",
+                                        "Soxhlet Extraction",
+                                        "Suction Machine",
+                                        "TLC Plate Viewer (UV Lamp-equipped)",
+                                        "Top-Loading Balance",
+                                        "Ultrasonic Processor (Probe Type)",
+                                        "Vacuum Drying Oven",
+                                        "Water Bath Shaker",
+                                        "Westphal Balance"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.adamson.edu.ph/v1/downloads/services/Services%20Offered.pdf"
+                                },
+                                {
+                                    name: "Philippine Institute of Pure and Applied Chemistry (PIPAC)",
+                                    website: "https://www.pipac.com.ph/",
+                                    location: "Ateneo de Manila University Katipunan Ave, Loyola Heights, Quezon City 1108",
+                                    classification: "Government Agency",
+                                    contact: "info@pipac.com.ph, pipac.laboratory@pipac.com.ph | Telephone: +63.2.84266072, +63.2.84266001 loc. 4856, 4857 Fax: +63.2.84266073 Mobile:+63.908.2668046",
+                                    services: [
+                                        "Analytical Services",
+                                        "Food",
+                                        "Pharmaceuticals, Cosmetics & Dietary Supplements",
+                                        "Water",
+                                        "Fats & Oils",
+                                        "Environmental Samples",
+                                        "Air & Gas",
+                                        "Agro-Products & Chemicals",
+                                        "Biological Samples",
+                                        "Synthetic Detergents",
+                                        "Plastics, Paints & Other Materials",
+                                        "Safety Products",
+                                        "Microbiological Services",
+                                        "Drinking Water",
+                                        "Waste and Environmental Water",
+                                        "Food Products",
+                                        "Packaging Material and Food Contact Surfaces",
+                                        "Pharmaceuticals, Supplements, Soap and Cosmetics"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.pipac.com.ph/"
+                                },
+                                {
+                                    name: "Philippine Textile Research Institute Testing Laboratory",
+                                    website: "https://www.ptri.dost.gov.ph/faq/9-transparency-seal/234-laboratory-testing-services",
+                                    location: "General Santos Ave, Taguig, 1631 Metro Manila",
+                                    classification: "Government Agency",
+                                    contact: "ptri@ptri.dost.gov.ph, ptritestinglab@ptri.dost.gov.ph | Phone : 0916 638 9760",
+                                    services: [
+                                        "Chemical Testing Laboratory",
+                                        "Fiber Identification",
+                                        "Fiber Composition Analysis",
+                                        "Colorfastness Tests",
+                                        "Water Repellency Tests",
+                                        "Chemical Content Analysis",
+                                        "Formaldehyde",
+                                        "pH Value",
+                                        "Moisture Content",
+                                        "Ash Content",
+                                        "Oil Content",
+                                        "Sugar Content",
+                                        "Total Cellulose Content",
+                                        "Gum Content",
+                                        "Physical Testing Laboratory",
+                                        "Fiber Tests",
+                                        "Yarn Tests",
+                                        "Fabric Tests",
+                                        "Garment Tests",
+                                        "Carpet Tests",
+                                        "Geotextile Tests",
+                                        "Nonwoven Tests",
+                                        "Breaking Strength and Force Tests",
+                                        "Tearing Strength Tests",
+                                        "Mass Per Unit Area Testing",
+                                        "Thickness Testing",
+                                        "Stiffness Testing"
+                                    ],
+                                    additional: "For more information regarding services offered: https://www.ptri.dost.gov.ph/images/Testing_Rev_Jan_2016.pdf"
+                                },
+                                {
+                                    name: "Metals Industry Research and Development Center",
+                                    website: "https://mirdc.dost.gov.ph/",
+                                    location: "MIRDC Compound Gen. Santos Ave. Bicutan, Taguig City",
+                                    classification: "Government Agency",
+                                    contact: "rspagtalunan@mirdc.dost.gov.ph, instrumentation.m | (+632) 838-7878 / 837-0613",
+                                    services: [
+                                        "Corrosion Laboratory",
+                                        "Bend Test",
+                                        "Tape Test",
+                                        "Impact Test",
+                                        "Pencil Hardness Test",
+                                        "Salt Spray Test",
+                                        "CASS Test",
+                                        "Thickness of Coating",
+                                        "Weight/Thickness of Zinc Coating (Stripping Method)",
+                                        "Triple Spot",
+                                        "Weight of Tin Coating",
+                                        "Weight of Wax Coating",
+                                        "Specific Gravity",
+                                        "Sample Preparation (Stripping of Coating)",
+                                        "Photo print",
+
+                                        "Mechanical Metallurgy Laboratory",
+                                        "Tension Test",
+                                        "Bend Test",
+                                        "Variation in Mass",
+                                        "Deformation Measurement",
+                                        "Hardness Test",
+                                        "Compression Test",
+                                        "Flattening/Transverse Test",
+                                        "Proof Load/Breaking Load",
+                                        "Deflection Test",
+                                        "Shear Test",
+                                        "Complete Physical Test for Wires",
+                                        "Complete Physical Test for Angle Bars",
+                                        "Dimensional for Nails",
+                                        "Fracture/Break Test",
+                                        "Pull-Out Test",
+                                        "Impact Test",
+                                        "Burst Test",
+                                        "Air Leak Test",
+                                        "Hydrostatic Test",
+                                        "Sample Preparation",
+                                        "Sectioning Cost",
+                                        "Photo print (B/W)",
+
+                                        "Non-Destructive Testing Laboratory",
+                                        "Radiography, X-ray",
+                                        "Ultrasonic Testing Set-up",
+                                        "Liquid Penetrant Testing",
+                                        "Magnetic Particle Test",
+                                        "Tire Endurance Tester",
+                                        "Friction Test for Brake/Clutch Lining Materials",
+                                        "Vibration Test",
+                                        "Fatigue Test",
+                                        "Hardness Test for Rubber",
+                                        "Roughness Test",
+                                        "Data Recorder/Analyzer",
+                                        "Crash Test",
+                                        "Seat Frame Endurance Test",
+                                        "Weighing",
+                                        "Photo / print",
+
+                                        "Auto-parts Testing Laboratory",
+                                        "Emergency Locking Retractor Test",
+                                        "Length Adjustment Force",
+                                        "Environmental Testing"
+                                    ],
+                                    additional: "For more information regarding services offered: https://mirdc.dost.gov.ph/images/ATD/2023/SCHEDULE_OF_FEES_AND_CHARGES_FOR_TESTING.pdf"
+                                },
+                                {
+                                    name: "Q-TECH TESTING LABORATORY",
+                                    website: "https://www.qtechlaboratory.com/",
+                                    location: "No. 29 G. Raymundo St., Bo. Malinao, Pasig City, Metro Manila",
+                                    classification: "Private Laboratories",
+                                    contact: "qtechlaboratory@gmail.com | 02-86428345",
+                                    services: [
+                                        "Thickness",
+                                        "Tensile Strength",
+                                        "Ultimate Elongation",
+                                        "Tensile Strength of Splice Area",
+                                        "Set-after-ageing",
+                                        "Appearance",
+                                        "Airtightness",
+                                        "Marking"
+                                    ],
+                                    additional: "For more information regarding services offered: https://pabaccreditation.dti.gov.ph/73b6058d10f1d1b84c3a8e34a65e537b405c7bcceb0a3482b00064ea02989f3afefa876cbe1a7a83c4cd5627db21a5eac6?page=35"
+                                },
+                                {
+                                    name: "SGS Philippines inc. - Multi-Laboratory",
+                                    website: "https://www.sgs.com/en-ph/service-groups/laboratory-services",
+                                    location: "Alegria Building, 2229 Chino Roces Ave., San Lorenzo, Makati City",
+                                    classification: "Private Laboratories",
+                                    contact: "jonalyn.tolentino-samonte@sgs.com | +632-87849400 (loc) 809/09178033161",
+                                    services: [
+                                        "Biological Testing",
+                                        "Foods and Beverages**",
+                                        "Aerobic Plate Count",
+                                        "Anaerobic Plate Count",
+                                        "Lactic Acid Bacteria Count",
+                                        "Yeast and Mold Count",
+                                        "Thermophilic Flat Sour Spore Count",
+                                        "Mesophilic Aerobic Sporeformers Count",
+                                        "Mesophilic Anaerobic Sporeformers Count",
+                                        "Thermophilic Aerobic Sporeformers Count",
+                                        "Thermophilic Anaerobic Sporeformers Count",
+                                        "Sulfide Spoilage",
+                                        "Sporeformers",
+                                        "Enterobacteriaceae",
+                                        "Coliform",
+                                        "Fecal Coliform",
+                                        "E. coli",
+                                        "Staphylococcus aureus",
+                                        "Bacillus cereus",
+                                        "Vibrio parahaemolyticus",
+                                        "Clostridium pefringens",
+                                        "Salmonella",
+                                        "Vibrio cholerae",
+                                        "Listeria spp./ Listeria monocytogenes"
+
+                                    ],
+                                    additional: "For more information regarding services offered: https://pabaccreditation.dti.gov.ph/60ba7e440aad733d077dbbe4f8567ab88522a101dc74d5ea926a1c45f606bf6d96fafdc01b559e9cb8b4a9b39d95af903c?search=&structure=7&scheme=&status=&page=14"
+                                },
+                                {
+                                    name: "SYCWIN WIRE AND CABLE TECHNICAL LABORATORY",
+                                    website: "https://www.sycwin.com/wires/our-laboratory",
+                                    location: "#93 Joy St. Grace Village, Balingasa, Quezon City",
+                                    classification: "Private Laboratories",
+                                    contact: "swctl@sycwin.com | 8364-6001 to 06",
+                                    services: [
+                                        "Electrical Conductivity",
+                                        "Resistivity",
+                                        "Conductor Diameter/Area",
+                                        "Wire Diameter",
+                                        "Lay/Length/Lay Ratio",
+                                        "Lay Direction",
+                                        "Conductor Resistance",
+                                        "Insulation Resistance",
+                                        "Dielectric Strength/Withstand",
+                                        "Voltage Test",
+                                        "Spark Test",
+                                        "Water Immersion",
+                                        "Insulation Thickness",
+                                        "Tensile Strength of Insulation",
+                                        "Elongation of Insulation",
+                                        "Accelerated Ageing",
+                                        "Flame Retardant Test",
+                                        "Heat Shock",
+                                        "Heat Deformation",
+                                        "Capacitance and Relative Permittivity Test",
+                                        "Wrap Test of Nylon Jacket",
+                                        "Elongation of Conductor Marking",
+                                        "Dimensions of Finished Wire",
+                                        "Tensile Strength of Jacket",
+                                        "Elongation of Jacket",
+                                        "Circuit Integrity Test",
+                                        "Fire Alone",
+                                        "Fire with Water",
+                                        "Fire with Mechanical Shock",
+                                        "Thickness of Jacket",
+                                        "Separation or Distance Between Circuit Conductors"
+
+                                    ],
+                                    additional: "For more information regarding services offered: https://pabaccreditation.dti.gov.ph/60ba7e440aad733d077dbbe4f8567ab88522a101dc74d5ea926a1c45f606bf6d96fafdc01b559e9cb8b4a9b39d95af903c?search=&structure=9&scheme=&status=&page=3"
+                                },
+                                {
+                                    name: "LIFECARE XPRT ANALYTICAL SERVICES CORPORATION",
+                                    website: "https://xas.com.ph/",
+                                    location: "2F 3759 Skrene Properties Building Cuenca St. cor. Emilia St. Palanan, Makati City",
+                                    classification: "Private Laboratories",
+                                    contact: "JAMES ROMMEL ACEDERA SILAO | (632) 551-3422 local 132",
+                                    services: [
+                                        "Physico-Chemical Test",
+                                        "pH (electrometric)",
+                                        "Appearance",
+                                        "Assay",
+                                        "Assay for Acetaminophen (HPLC)",
+                                        "Assay for Metronidazole (HPLC)",
+                                        "Assay for Folic Acid (HPLC)",
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://pabaccreditation.dti.gov.ph/73b6058d10f1d1b84c3a8e34a65e537b405c7bcceb0a3482b00064ea02989f3afefa876cbe1a7a83c4cd5627db21a5eac6?page=41"
+                                },
+                                {
+                                    name: "Pesticide Analytical Laboratory Section Plant Product Safety Services Division Bureau of Plant Industry",
+                                    website: "https://ppssd.buplant.da.gov.ph/",
+                                    location: "Visayas Avenue, Diliman, Quezon City",
+                                    classification: "Government Agencies",
+                                    contact: "lsdnpal2010@gmail.com / renelyn.sadural@gmail.com | (02)8426-3366 / 09434509461",
+                                    services: [
+                                        "Pesticide Residues in Fruits and Vegetables",
+                                        "Fungicide Pesticide Formulations",
+                                        "Herbicides",
+                                        "Combined Herbicide/Fungicide Tests",
+                                        "Insecticides/Acaricides",
+                                        "Other Formulated Pesticide Products"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://pabaccreditation.dti.gov.ph/73b6058d10f1d1b84c3a8e34a65e537b405c7bcceb0a3482b00064ea02989f3afefa876cbe1a7a83c4cd5627db21a5eac6?page=30"
+                                },
+                                {
+                                    name: "University of Santo Tomas - Analytical Services Laboratory (ASL)",
+                                    website: "https://www.ust.edu.ph/research/research-center-for-the-natural-and-applied-sciences/ust-asl/",
+                                    location: "España, Manila City",
+                                    classification: "Academic Institution",
+                                    contact: "asl-rcnas@ust.edu.ph | Telephone Number: 63-2-3406-1611 local 4014, 63-2-3406-1611 local 4060, 63-2-8786-1611 local 4014, 63-2-8786-1611 local 4060",
+                                    services: [
+                                        "Instrumental Analyses",
+                                        "UV-VIS Spectrophotometer",
+                                        "Fourier Transform Infrared Spectrophotometer (FTIR)",
+                                        "Fluorescence Spectrophotometer",
+                                        "High-Performance Liquid Chromatograph (HPLC)",
+                                        "Gas Chromatograph – Flame Ionization Detector (GC-FID)",
+                                        "Thermogravimetric Analyzer (TGA)",
+                                        "Differential Scanning Calorimeter (DSC)",
+                                        "Turbidimeter",
+                                        "Scanning Electron Microscope (SEM)",
+                                        "Scanning Electron Microscope – Energy Dispersive Spectrometer (SEM-EDS)",
+                                        "pH Meter",
+
+                                        "Phytochemical Analyses",
+                                        "Total Flavonoid Content (TFC) Assay",
+                                        "Total Phenolic Content (TPC) Assay",
+                                        "DPPH Antioxidant Assay",
+                                        "Qualitative Phytochemical Analysis (Alkaloid, Flavonoid, Tannin, Phenol)",
+
+                                        "Technical Services",
+                                        "Lyophilizer",
+                                        "Rotary Evaporator",
+                                        "Vacuum Filter"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://www.facebook.com/USTAnalyticalServicesLaboratory"
+                                },
+                                {
+                                    name: "Aqua Lab Center",
+                                    website: "https://www.aqualabcenter.com",
+                                    location: "Aqua Lab Center, DDI Building, Del monte Avenue Corner Mayon Street, Santa Mesa Heights, Quezon City",
+                                    classification: "Private Laboratory",
+                                    contact: "aqualabcenter@gmail.com, alcmayon@yahoo.com | Mobile and Telephone Number: 0943-137-4004 / 0906-443-1652(02) 8354-0059 / 8711-0917/ 8742-4743 / 8741-1170",
+                                    services: [
+                                        "Potable Water Testing",
+                                        "Total and Fecal Coliform (Microbiological)",
+                                        "Heterotrophic Plate Count (HPC) (Microbiological)",
+                                        "E-Coli (Microbiological)",
+
+                                        "Dialysis Water Testing",
+                                        "Total and Fecal Coliform (Microbiological)",
+                                        "Heterotrophic Plate Count (HPC) (Microbiological)",
+
+                                        "Wastewater Testing",
+                                        "Total and Fecal Coliform (Microbiological)"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://www.aqualabcenter.com"
+                                },
+                                {
+                                    name: "ADIP Testing and Research Laboratory Inc. (ADIP TRLab Inc.)",
+                                    website: "https://www.adiptrlab.com",
+                                    location: "136 B Scout Fuentebella Street, Barangay Sacred Heart, Kamuning, Quezon City.",
+                                    classification: "Private Laboratory",
+                                    contact: "info.adiptrlab@gmail.com | Telephone Number: (3) 410-0930 or (7) 799-2257",
+                                    services: [
+                                        "HPLC",
+                                        "TLC",
+                                        "KF volumetric titration"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://www.fda.gov.ph/wp-content/uploads/2024/12/1-ADIP.pdf"
+                                },
+                                {
+                                    name: "Antimicrobial Resistance Surveillance Reference Laboratory",
+                                    website: "https://arsp.com.ph/laboratory-services/",
+                                    location: "DOH Compound, Filinvest Corporate City, Alabang Muntinlupa.",
+                                    classification: "Government Agency",
+                                    contact: "data@arsp.com.ph, data@arsp.com.ph | Telephone Number: (632) 88099763",
+                                    services: [
+                                        "Minimum Inhibitory Concentration",
+                                        "Serogrouping/Re-identification",
+                                        "Multiplex PCR on Carbapenemase",
+                                        "Multiplex PCR on ICR",
+                                        "Serotyping/Re-identification",
+                                        "Multiplex PCR on ESBL",
+                                        "Multiplex PCR for MECA"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://arsp.com.ph/laboratory-services/"
+                                },
+                                {
+                                    name: "Regional Standards and Testing Laboratory (RSTL) - DOST Region I",
+                                    website: "https://region1.dost.gov.ph/testing-and-calibration/",
+                                    location: "DOST Regional Office No. 1, City of San Fernando, La Union",
+                                    classification: "Government Agency",
+                                    contact: "DOST 1 DIRECTORY DR. TERESITA A. TABAOG Regional Director City of San Fernando, La Union, Philippines Telephone Number: : (072) 888-3399 | MR. BENJAMIN S. MERCADO, JR. Provincial Director Batac, Ilocos Norte Philippines Phone: (077) 670-1815 | ENGR. JORDAN L. ABAD Provincial Director Vigan City, Ilocos Sur, Philippines Phone: (077) 722-3347 | MR. JONATHAN M. VIERNES Provincial Director City of San Fernando, La Union, Philippines Phone: (072) 242-0663 | ENGR. ARNOLD C. SANTOS Provincial Director Lingayen, Pangasinan, Philippines Phone: (075) 654-5155 | MR. MICHAEL JOHN C. MAQUILING Supervising Science Research Specialist / Officer-in-Charge Urdaneta City, Pangasinan, Philippines Phone: (0998) 962-0228 (Smart) / (0917) 840-8258 (Globe) ",
+                                    services: [
+                                        "Analytical testing",
+                                        "Calibration services",
+                                        "Packaging and Labeling ",
+                                        "Technical Assistance and Consultancy Services",
+                                        "Technological Training"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:https://region1.dost.gov.ph/testing-and-calibration/"
+                                },
+                                {
+                                    name: "Bureau of Soils and Water Management (BSWM) - Laboratory Services Division",
+                                    website: "https://www.bswm.da.gov.ph/unit/directors-office/lsd/",
+                                    location: "3rd Floor, SRDC Bldg., Visayas Ave. cor. Elliptical Rd., Diliman, Quezon City",
+                                    classification: "Government Agency",
+                                    contact: "laboratory@bswm.da.gov.ph, customers.center@bswm.da.gov.ph | Telephone Number: (8)529-7640 local 301",
+                                    services: [
+                                        "Soil and land evaluation",
+                                        "Laboratory services",
+                                        "Soil conservation farm planning",
+                                        "Soil/Land Evaluation and Mapping",
+                                        "Small Scale Irrigation Infrastructure",
+                                        "Cloud Seeding Operations",
+                                        "Research and Development",
+                                        "S & W Information System"
+                                    ],
+                                    additional: "For more information regarding services offered: For more information about the services:http://www.gov.ph/ | http://www.gov.ph/data | https://www.officialgazette.gov.ph/"
+                                },
+                                {
+                                    name: "Energy Research and Testing Laboratory - Department of Energy (DOE)",
+                                    website: "https://doe.gov.ph/ertls",
+                                    location: "DOE Main Office, Energy Center, Rizal Drive, Bonifacio Global City, Taguig City",
+                                    classification: "Government Agency",
+                                    contact: "info@doe.gov.ph  | Telephone Number: (02) 479-2900 | Amelia M. De Guzman, CESO IV Director III, Energy Research Testing and Laboratory Services Email address: amdg@doe.gov.ph Telephone no.: 8840-2093 | Virginia S. Llamo OIC-Division Chief, Geothermal Research & Fuel Testing Laboratory Division Email address: virginia.llamo@doe.gov.ph Telephone no.: 840-07-71 | Isagani C. Soriano OIC-Division Chief, Lighting & Appliance Testing Division Email address: isagani.soriano@doe.gov.ph Telephone no.: 840-55-92",
+                                    services: [
+                                        "Energy exploration",
+                                        "Development",
+                                        "Processed fuels testing"
+                                    ],
+                                    additional: "Learn more about the Philippine government, its structure, how the government works and the people behind it. http://www.gov.ph/ | http://www.gov.ph/data | https://www.officialgazette.gov.ph/"
+                                },
+                                {
+                                    name: "Philippine Genome Center (PGC)",
+                                    website: "https://pgc.up.edu.ph/",
+                                    location: "University of the Philippines, A. Ma. Regidor Street, National Science Complex, Diliman, Quezon City",
+                                    classification: "Government Agency",
+                                    contact: "info@pgc.up.edu.ph | Telephone Number: (02) 8981-8500 loc. 4706 | MAIN 8 981-8500 Loc 4703 or 4704 (administrative services) Email: pgc@up.edu.ph (admin), capacitydevelopment@pgc.up.edu.ph (immersions), hr@pgc.up.edu.ph (opportunities) | DNA Sequencing Local 4707 Email: dnasequencing@pgc.up.edu.ph | Bioinformatics Local 4706 Email: bioinformatics@pgc.up.edu.ph | CLINICAL GENOMICS LABORATORY / COVID-19 LAB Local 4713 / +63917-119-7293 Email: clinicalgenomicslaboratory@up.edu.ph (Inquiries / Sending COVID-19 Samples) | Protein, Proteomics and Metabolomics Local 4711 Email: ppmfacility@pgc.up.edu.ph",
+                                    services: [
+                                        "Genomic research",
+                                        "DNA sequencing",
+                                        "Bioinformatics services",
+                                        "Protein, Proteomics, and Metabolomics",
+                                        "Clinical Genomics",
+                                        "Biobanking"
+                                    ],
+                                    additional: "Learn more about the Philippine government, its structure, how the government works and the people behind it. http://www.gov.ph/ | http://www.gov.ph/data | https://www.officialgazette.gov.ph/"
+                                },
+                                {
+                                    name: "American Bio-Clinical Laboratories, International",
+                                    website: "https://www.abclab.com.ph/",
+                                    location: "LG 3-6 Richville Corp. Tower, Madrigal Business Park, Ayala-Alabang, Muntinlupa City, Philippines",
+                                    classification: "Private Laboratory",
+                                    contact: "info@abclab.com.ph | Telephone no.: (02) 8850-6288 to 89 | 1800-10-807-3955 0917-816-4409",
+                                    services: [
+                                        "Viral DNA Hybridization/Polymerase-Chain Reaction – (PCR)",
+                                        "Electrochemiluminescence/ECLIA, Enzyme-Linked Immunosorbent Assay/ELISA, Immunoturbidimetric – (Immunology)",
+                                        "Electric Detection method – (Hematology)",
+                                        "Kinetic, Colorimetry and Turbidimetry – (Clinical Chemistry)",
+                                        "Microscopic Examination of Clinical Specimen – (Clinical Microscopy)",
+                                        "Culture and Sensitivity – (Bacteriology)",
+                                        "Cytology and Histopathology",
+                                        "OTHER Tests that maybe required by Clients."
+                                    ],
+                                    additional: "For other concerns relative to our Courier Services, you can e-mail direct to our Courier Supervisor  courier_gs@abclab.com.ph."
+                                },
+                            ];
+
+                            function showSuggestions() {
+                                const input = document.getElementById('searchInput').value.toLowerCase();
+                                const suggestionList = document.getElementById('suggestionList');
+
+                                suggestionList.innerHTML = '';
+
+                                if (input.trim() === '') {
+                                    suggestionList.innerHTML = '<li class="list-group-item bg-transparent text-white-50">Start typing to see suggestions...</li>';
+                                    return;
+                                }
+
+                                const filteredResults = database.filter(lab =>
+                                    lab.services.some(service => service.toLowerCase().includes(input)) ||
+                                    lab.name.toLowerCase().includes(input)
+                                );
+
+                                if (filteredResults.length > 0) {
+                                    filteredResults.forEach((lab, index) => {
+                                        const listItem = document.createElement('li');
+                                        listItem.className = 'list-group-item bg-transparent text-white suggestion-item';
+
+                                        const servicesList = lab.services.map(service => `<li>${service}</li>`).join('');
+
+                                        listItem.innerHTML = `
+                                            <h6>${lab.name}</h6>
+                                            <p class="mb-1 text-white-50">${lab.location}</p>
+                                            <p class="mb-1 text-white-50">${lab.contact}</p>
+                                            <a href="${lab.website}" target="_self" class="btn btn-danger btn-sm">View Site</a>
+                                            <p class="mt-2 text-white-50 small">${lab.additional}</p>
+                                            <ul class="mt-2 text-white-50 small">
+                                                <strong>Services Offered:</strong>
+                                                ${servicesList}
+                                            </ul>
+                                        `;
+
+                                        suggestionList.appendChild(listItem);
+
+                                        setTimeout(() => {
+                                            listItem.classList.add('show');
+                                        }, index * 100);
+                                    });
+                                } else {
+                                    suggestionList.innerHTML = '<li class="list-group-item bg-transparent text-white-50">No results found.</li>';
+                                }
+                            }
+                        </script>
+                    </div>
+                </div>
+                <div class="marquee-container">
+                    <div class="marquee-wrapper">
+                        <div class="marquee font-weight-bold">
+                            <span class="p"><span class="p" style="color: red;">*</span>Mammalian Cell Culture
+                                Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>DOST-Food and Nutrition
+                                Research
+                                Institute</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>De La Salle-Medical and
+                                Health
+                                Sciences Institute</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>National Chemistry
+                                Instrumentation
+                                Center (NCIC)</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>DLSU Spectroscopy
+                                Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>NSRI-Biological Research and
+                                Services Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>CAS-IBS Microbiology
+                                Services
+                                Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>CAFS-IPB Analytical Services
+                                Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Central Analytical Services
+                                Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>UP Manila-College of Public
+                                Health</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>DOST-Industrial Technology
+                                Development Institute</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Adamson University
+                                Technology
+                                Research and Development Center</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Philippine Institute of Pure
+                                and
+                                Applied Chemistry (PIPAC)</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Philippine Textile Research
+                                Institute Testing Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Metals Industry Research and
+                                Development Center</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Q-TECH TESTING
+                                LABORATORY</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>SGS Philippines Inc. -
+                                Multi-Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>SYCWIN WIRE AND CABLE
+                                TECHNICAL
+                                LABORATORY</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>LIFECARE</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>XPRT ANALYTICAL SERVICES
+                                CORPORATION</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Pesticide Analytical
+                                Laboratory
+                                Section Plant Product Safety Services Division Bureau of
+                                Plant Industry</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>University of Santo Tomas -
+                                Analytical Services Laboratory (ASL)</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Aqua Lab Center</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>ADIP Testing and Research
+                                Laboratory
+                                Inc. (ADIP TRLab Inc.)</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Antimicrobial Resistance
+                                Surveillance Reference Laboratory</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Regional Standards and
+                                Testing
+                                Laboratory (RSTL) - DOST Region I</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Bureau of Soils and Water
+                                Management
+                                (BSWM) - Laboratory Services Division</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Energy Research and Testing
+                                Laboratory - Department of Energy (DOE)</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>Philippine Genome Center
+                                (PGC)</span>
+                            <span class="p"><span class="p" style="color: red;">*</span>American Bio-Clinical
+                                Laboratories,
+                                International</span>
+                        </div>
+
+                        <div class="marquee">
+                            <span class="p"><span class="p">*</span>Mammalian Cell Culture Laboratory</span>
+                            <span class="p"><span class="p">*</span>DOST-Food and Nutrition Research
+                                Institute</span>
+                            <span class="p"><span class="p">*</span>De La Salle-Medical and Health Sciences
+                                Institute</span>
+                            <span class="p"><span class="p">*</span>National Chemistry Instrumentation Center
+                                (NCIC)</span>
+                            <span class="p"><span class="p">*</span>DLSU Spectroscopy Laboratory</span>
+                            <span class="p"><span class="p">*</span>NSRI-Biological Research and Services
+                                Laboratory</span>
+                            <span class="p"><span class="p">*</span>CAS-IBS Microbiology Services Laboratory</span>
+                            <span class="p"><span class="p">*</span>CAFS-IPB Analytical Services Laboratory</span>
+                            <span class="p"><span class="p">*</span>Central Analytical Services Laboratory</span>
+                            <span class="p"><span class="p">*</span>UP Manila-College of Public Health</span>
+                            <span class="p"><span class="p">*</span>DOST-Industrial Technology Development
+                                Institute</span>
+                            <span class="p"><span class="p">*</span>Adamson University Technology Research and
+                                Development
+                                Center</span>
+                            <span class="p"><span class="p">*</span>Philippine Institute of Pure and Applied
+                                Chemistry
+                                (PIPAC)</span>
+                            <span class="p"><span class="p">*</span>Philippine Textile Research Institute Testing
+                                Laboratory</span>
+                            <span class="p"><span class="p">*</span>Metals Industry Research and Development
+                                Center</span>
+                            <span class="p"><span class="p">*</span>Q-TECH TESTING LABORATORY</span>
+                            <span class="p"><span class="p">*</span>SGS Philippines Inc. - Multi-Laboratory</span>
+                            <span class="p"><span class="p">*</span>SYCWIN WIRE AND CABLE TECHNICAL
+                                LABORATORY</span>
+                            <span class="p"><span class="p">*</span>LIFECARE</span>
+                            <span class="p"><span class="p">*</span>XPRT ANALYTICAL SERVICES CORPORATION</span>
+                            <span class="p"><span class="p">*</span>Pesticide Analytical Laboratory Section Plant
+                                Product
+                                Safety Services Division Bureau of
+                                Plant Industry</span>
+                            <span class="p"><span class="p">*</span>University of Santo Tomas - Analytical Services
+                                Laboratory (ASL)</span>
+                            <span class="p"><span class="p">*</span>Aqua Lab Center</span>
+                            <span class="p"><span class="p">*</span>ADIP Testing and Research Laboratory Inc. (ADIP
+                                TRLab
+                                Inc.)</span>
+                            <span class="p"><span class="p">*</span>Antimicrobial Resistance Surveillance Reference
+                                Laboratory</span>
+                            <span class="p"><span class="p">*</span>Regional Standards and Testing Laboratory (RSTL)
+                                - DOST
+                                Region I</span>
+                            <span class="p"><span class="p">*</span>Bureau of Soils and Water Management (BSWM) -
+                                Laboratory
+                                Services Division</span>
+                            <span class="p"><span class="p">*</span>Energy Research and Testing Laboratory -
+                                Department of
+                                Energy (DOE)</span>
+                            <span class="p"><span class="p">*</span>Philippine Genome Center (PGC)</span>
+                            <span class="p"><span class="p">*</span>American Bio-Clinical Laboratories,
+                                International</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <section id="services">
+            <div class="container-fluid services-container" style="position: relative; overflow: hidden;">
+                <div class="background-overlay" style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                ">
+                    <div class="decorative-shapes">
+                        <div class="floating-circle"
+                            style="position: absolute; top: -10%; left: 20%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 6s ease-in-out infinite;">
+                        </div>
+                        <div class="floating-circle"
+                            style="position: absolute; top: 20%; left: -8%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 8s ease-in-out infinite;">
+                        </div>
+                        <div class="floating-circle"
+                            style="position: absolute; bottom: 55%; left: 90%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 5s ease-in-out infinite;">
+                        </div>
+                        <div class="floating-circle"
+                            style="position: absolute; bottom: 55%; left: 85%; top: 70%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 7s ease-in-out infinite;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container services-content mt-5 mb-5">
+                    <h1 class="display-4 fw-bold text-center" style="color: #dc3545"> Our Services
+                    </h1>
+                    <p class="text-center lead">
+                        FindLab connects researchers with top laboratories, specialized research services, and advanced
+                        scientific equipment. Whether you need a facility for testing, expert analysis, or
+                        state-of-the-art instruments, our platform makes it easy to locate the right resources to
+                        support your scientific work.
+                    </p>
+
+                    <div class="services-card">
+                        <div class="row my-3" style="justify-content: center; text-align: center;">
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <div class="card mb-3 shadow-sm hover-card" style="width: 18rem;">
+                                    <div class="circular-img-container">
+                                        <img src="/images/lab.png" alt="Laboratories" class="circular-img">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="color: #333;">Laboratories</h5>
+                                        <p class="card-text" style="color: #666;">Find accredited laboratories for
+                                            various scientific research and testing needs.</p>
+                                        <a class="btn btn-danger" href="#">View more</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <div class="card mb-3 shadow-sm hover-card" style="width: 18rem;">
+                                    <div class="circular-img-container">
+                                        <img src="/images/microscope.png" alt="Research Services" class="circular-img">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="color: #333;">Research Services</h5>
+                                        <p class="card-text" style="color: #666;">Access expert research assistance,
+                                            analytical services, and data interpretation.</p>
+                                        <a class="btn btn-danger" href="#">View more</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                                <div class="card mb-3 shadow-sm hover-card" style="width: 18rem;">
+                                    <div class="circular-img-container">
+                                        <img src="/images/laboratory.png" alt="Research Equipment" class="circular-img">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title" style="color: #333;">Research Equipment</h5>
+                                        <p class="card-text" style="color: #666;">Find specialized scientific
+                                            instruments and equipment for your experiments.</p>
+                                        <a class="btn btn-danger" href="#">View more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <section id="about">
+            <div class="container-fluid text-black py-5"
+                style="background-color: #feffea; box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;">
+                <div class="container">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-6 d-flex justify-content-center position-relative">
+
+                            <div style="position: absolute; top: -15%; left: -5%; width: 150px; height: 100px; 
+                                background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2));
+                                transform: rotate(-15deg); 
+                                z-index: 0;">
+                            </div>
+                            <div style="position: absolute; bottom: -15%; right: -5%; width: 200px; height: 120px; 
+                                background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); 
+                                transform: rotate(15deg); 
+                                z-index: 0;">
+                            </div>
+
+
+                            <div class="image-transition-container">
+
+                                <div class="image-set active">
+                                    <div class="image-wrapper front">
+                                        <img src="/images/about.jpg" alt="Image 1">
+                                    </div>
+                                    <div class="image-wrapper back">
+                                        <img src="/images/about6.jpg" alt="Image 2">
+                                    </div>
+                                </div>
+
+                                <div class="image-set">
+                                    <div class="image-wrapper front">
+                                        <img src="/images/about2.jpg" alt="Image 3">
+                                    </div>
+                                    <div class="image-wrapper back">
+                                        <img src="/images/about3.jpg" alt="Image 4">
+                                    </div>
+                                </div>
+
+                                <div class="image-set">
+                                    <div class="image-wrapper front">
+                                        <img src="/images/about4.jpg" alt="Image 5">
+                                    </div>
+                                    <div class="image-wrapper back">
+                                        <img src="/images/about5.jpg" alt="Image 6">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6">
+                            <div class="text-center text-lg-end">
+                                <h3 class="display-4">About Us</h3>
+                                <h1 class="text-danger">FindLab: A Web-Based Tool for Identifying Research and Testing
+                                    Facilities for Laboratory Experiments</h1>
+                                <hr class="bg-light">
+                                <p class="lead">
+                                    FindLab is an innovative platform designed to help researchers easily connect with
+                                    laboratories, testing facilities, and scientific equipment. Our mission is to
+                                    simplify the research process by providing access to the right resources for any
+                                    scientific project, from biology to engineering.
+                                </p>
+                                <p class="lead">
+                                    Whether you’re searching for the perfect lab or state-of-the-art equipment, FindLab
+                                    makes it easy to find the tools you need to advance your research. We’re here to
+                                    support the global research community by connecting knowledge with the resources
+                                    that make innovation possible.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="laboratories">
+            <div class="container-fluid services-container" style="position: relative; overflow: hidden;">
+                <div class="background-overlay" style="
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                z-index: -1;
+                            ">
+                    <div class="decorative-shapes">
+                        <div class="floating-circle"
+                            style="position: absolute; top: -10%; right: 20%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 6s ease-in-out infinite;">
+                        </div>
+                        <div class="floating-circle"
+                            style="position: absolute; top: 20%; right: -8%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 8s ease-in-out infinite;">
+                        </div>
+                        <div class="floating-circle"
+                            style="position: absolute; bottom: 55%; right: 90%; width: 100px; height: 100px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 5s ease-in-out infinite;">
+                        </div>
+                        <div class="floating-circle"
+                            style="position: absolute; bottom: 55%; right: 85%; top: 70%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0.2)); border-radius: 50%; animation: float 7s ease-in-out infinite;">
+                        </div>
+                    </div>
+                </div>
+                <div class="container mt-5 mb-5">
+                    <div class="text-center my-4 position-relative" style="z-index: 1;">
+                        <h1 class="display-4 fw-bold" style="color: #dc3545;">Laboratories</h1>
+                        <p class="lead px-3 py-2 d-inline-block">
+                            Connect with the right laboratories and research facilities for your experiments</p>
+                    </div>
+
+                    <div class="row text-center position-relative" style="z-index: 1;">
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm hover-card">
+                                <div class="card-img-overlay-custom">
+                                    <img src="/images/facility.jpg" class="card-img-top" alt="Research Facilities">
+                                </div>
+                                <div class="card-body"
+                                    style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
+                                    <h5 class="card-title fw-bold text-danger">Research Facilities</h5>
+                                    <p class="card-text">Discover a variety of facilities equipped for different types
+                                        of
+                                        scientific research and testing.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm hover-card">
+                                <div class="card-img-overlay-custom">
+                                    <img src="/images/testing.jpg" class="card-img-top" alt="Testing Labs">
+                                </div>
+                                <div class="card-body"
+                                    style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
+                                    <h5 class="card-title fw-bold text-danger">Testing Labs</h5>
+                                    <p class="card-text">Access specialized testing laboratories with state-of-the-art
+                                        equipment to ensure precise results.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-4">
+                            <div class="card shadow-sm hover-card">
+                                <div class="card-img-overlay-custom">
+                                    <img src="/images/equipment.jpg" class="card-img-top" alt="Scientific Equipment">
+                                </div>
+                                <div class="card-body"
+                                    style="background: linear-gradient(to bottom, #ffffff, #f8f9fa);">
+                                    <h5 class="card-title fw-bold text-danger">Scientific Equipment</h5>
+                                    <p class="card-text">Browse a selection of top-tier scientific equipment available
+                                        for
+                                        your research projects.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center position-relative" style="z-index: 1;">
+                        <p class="text-muted px-4 py-3">
+                            FindLab is more than just a platform for finding labs. We provide a comprehensive,
+                            easy-to-use
+                            tool for researchers to connect with the best facilities and equipment suited for their
+                            needs.
+                            Whether you're conducting experiments in biology, chemistry, or engineering, FindLab helps
+                            you
+                            save time by simplifying the process of locating and accessing top-notch resources. Let us
+                            assist you in advancing your research, one connection at a time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="list">
+            <div class="container-fluid text-black py-5"
+                style="background-color: #feffea; box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;">
+                <div class="text-center text-black" style="background-color: #feffea;">
+                    <h1 class="display-4">List of Laboratories</h1>
+                    <p class="lead">Find research and testing facilities across various scientific fields. Below is a
+                        list of laboratories, their locations, and official websites.</p>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="table-responsive rounded-3">
+                                <table class="table table-bordered table-striped text-dark bg-white1">
+                                    <thead class="bg-success text-white">
+                                        <tr>
+                                            <th>Laboratory Name</th>
+                                            <th>Location</th>
+                                            <th>Official Website</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mammalian Cell Culture Laboratory</td>
+                                            <td>University of the Philippines Diliman, Quezon City</td>
+                                            <td><a href="https://sites.google.com/up.edu.ph/mccl-upd-extension-services/"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DOST-Food and Nutrition Research Institute</td>
+                                            <td>Taguig, Philippines</td>
+                                            <td><a href="https://www.fnri.dost.gov.ph/index.php" target="_blank">Visit
+                                                    Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>De La Salle-Medical and Health Sciences Institute</td>
+                                            <td>Dasmariñas City, Cavite</td>
+                                            <td><a href="https://www.dlshsi.edu.ph/" target="_blank">Visit Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>National Chemistry Instrumentation Center (NCIC)</td>
+                                            <td>Ateneo de Manila University, Quezon City</td>
+                                            <td><a href="https://sites.google.com/ateneo.edu/ncic/"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DLSU Spectroscopy Laboratory</td>
+                                            <td>De La Salle University Laguna Campus</td>
+                                            <td><a href="https://www.dlsu.edu.ph/research/central-instrumentation-facility/spectroscopy-laboratory/"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>NSRI-Biological Research and Services Laboratory</td>
+                                            <td>University of the Philippines Diliman</td>
+                                            <td><a href="https://sites.google.com/up.edu.ph/brsl-nsri/home?authuser=0"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CAS-IBS Microbiology Services Laboratory</td>
+                                            <td>University of the Philippines Los Baños</td>
+                                            <td><a href="https://ovcre.uplb.edu.ph/extension/analytical-research-services/item/366-cas-ibs-microbiology-services-laboratory"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>CAFS-IPB Analytical Services Laboratory</td>
+                                            <td>University of the Philippines Los Baños</td>
+                                            <td><a href="https://ovcre.uplb.edu.ph/extension/analytical-research-services/item/671-cafs-ipb-analytical-services-laboratory"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Central Analytical Services Laboratory</td>
+                                            <td>University of the Philippines Los Baños</td>
+                                            <td><a href="https://biotech.uplb.edu.ph/laboratory-services/casl/"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>UP Manila-College of Public Health</td>
+                                            <td>University of the Philippines Manila</td>
+                                            <td><a href="https://cph.upm.edu.ph/" target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DOST-Industrial Technology Development Institute</td>
+                                            <td>Taguig City, Philippines </td>
+                                            <td><a href="https://cph.upm.edu.ph/" target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adamson University Technology Research and Development Center</td>
+                                            <td>900 San Marcelino St, Ermita, Manila, 1000 Metro Manila</td>
+                                            <td><a href="https://www.adamson.edu.ph/v1/?page=offices&oid=30&link=64"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Philippine Institute of Pure and Applied Chemistry (PIPAC)</td>
+                                            <td>Ateneo de Manila University
+                                                Katipunan Ave, Loyola Heights, Quezon City 1108
+                                            </td>
+                                            <td><a href="https://www.pipac.com.ph/" target="_blank">Visit Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Philippine Textile Research Institute Testing Laboratory</td>
+                                            <td>General Santos Ave, Taguig, 1631 Metro Manila
+                                            </td>
+                                            <td><a href="https://www.ptri.dost.gov.ph/faq/9-transparency-seal/234-laboratory-testing-services"
+                                                    target="_blank">Visit Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Metals Industry Research and Development Center</td>
+                                            <td>MIRDC Compound Gen. Santos Ave. Bicutan, Taguig City</td>
+                                            <td><a href="https://mirdc.dost.gov.ph/" target="_blank">Visit Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>PQ-TECH TESTING LABORATORY</td>
+                                            <td>No. 29 G. Raymundo St., Bo. Malinao, Pasig City, Metro Manila</td>
+                                            <td><a href="https://www.qtechlaboratory.com/" target="_blank">Visit
+                                                    Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SGS Philippines inc. - Multi-Laboratory</td>
+                                            <td>Alegria Building, 2229 Chino Roces Ave., San Lorenzo, Makati City</td>
+                                            <td><a href="https://www.sgs.com/en-ph/service-groups/laboratory-services"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SYCWIN WIRE AND CABLE TECHNICAL LABORATORY</td>
+                                            <td>#93 Joy St. Grace Village, Balingasa, Quezon City</td>
+                                            <td><a href="https://www.sycwin.com/wires/our-laboratory"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>LIFECARE XPRT ANALYTICAL SERVICES CORPORATION</td>
+                                            <td>2F 3759 Skrene Properties Building Cuenca St. cor. Emilia St. Palanan,
+                                                Makati City</td>
+                                            <td><a href="https://xas.com.ph/" target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pesticide Analytical Laboratory Section Plant Product Safety Services
+                                                Division Bureau of Plant Industry</td>
+                                            <td>Visayas Avenue, Diliman, Quezon City</td>
+                                            <td><a href="https://ppssd.buplant.da.gov.ph/" target="_blank">Visit
+                                                    Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>University of Santo Tomas - Analytical Services Laboratory (ASL)</td>
+                                            <td>España, Manila City</td>
+                                            <td><a href="https://www.ust.edu.ph/research/research-center-for-the-natural-and-applied-sciences/ust-asl/"
+                                                    target="_blank">Visit Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aqua Lab Center</td>
+                                            <td>Aqua Lab Center, DDI Building, Del monte Avenue Corner Mayon Street,
+                                                Santa Mesa Heights, Quezon City</td>
+                                            <td><a href="https://www.aqualabcenter.com" target="_blank">Visit
+                                                    Website</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ADIP Testing and Research Laboratory Inc. (ADIP TRLab Inc.)</td>
+                                            <td>136 B Scout Fuentebella Street, Barangay
+                                                Sacred Heart, Kamuning, Quezon City.
+                                            </td>
+                                            <td><a href="https://www.adiptrlab.com" target="_blank">Visit Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Antimicrobial Resistance Surveillance Reference Laboratory</td>
+                                            <td>DOH Compound, Filinvest Corporate City, Alabang Muntinlupa</td>
+                                            <td><a href="https://arsp.com.ph/laboratory-services/" target="_blank">Visit
+                                                    Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Regional Standards and Testing Laboratory (RSTL) - DOST Region I</td>
+                                            <td>DOST Regional Office No. 1, City of San Fernando, La Union</td>
+                                            <td><a href="https://region1.dost.gov.ph/testing-and-calibration/"
+                                                    target="_blank">Visit
+                                                    Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bureau of Soils and Water Management (BSWM) - Laboratory Services
+                                                Division</td>
+                                            <td>3rd Floor, SRDC Bldg., Visayas Ave. cor. Elliptical Rd., Diliman, Quezon
+                                                City</td>
+                                            <td><a href="https://www.bswm.da.gov.ph/unit/directors-office/lsd/"
+                                                    target="_blank">Visit
+                                                    Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Energy Research and Testing Laboratory - Department of Energy (DOE)</td>
+                                            <td>DOE Main Office, Energy Center, Rizal Drive, Bonifacio Global City,
+                                                Taguig City</td>
+                                            <td><a href="https://doe.gov.ph/ertls" target="_blank">Visit
+                                                    Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Philippine Genome Center (PGC)</td>
+                                            <td>University of the Philippines, A. Ma. Regidor Street, National Science
+                                                Complex, Diliman, Quezon City</td>
+                                            <td><a href="https://pgc.up.edu.ph/" target="_blank">Visit
+                                                    Website</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>American Bio-Clinical Laboratories, International</td>
+                                            <td>LG 3-6 Richville Corp. Tower, Madrigal Business Park, Ayala-Alabang,
+                                                Muntinlupa City, Philippines</td>
+                                            <td><a href="https://www.abclab.com.ph/" target="_blank">Visit
+                                                    Website</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p class="text-center mt-3">For more information about each laboratory and their offered
+                                services, please visit their official websites.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <button id="scrollToTop" class="scroll-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+
+    </main>
+</body>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+
+        function updateActiveNavLink() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveNavLink);
+
+        function addPageTransitions() {
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        addPageTransitions();
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+
+                navLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+</script>
+
+
+</html>
